@@ -1,0 +1,108 @@
+CREATE TABLE `products` (
+  `id` int(12)  primary key auto_increment NOT NULL,
+  `idUsuario` int(12),
+  `nombreJuego` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `urlImg` varchar(200) COLLATE utf8_spanish_ci NOT NULL,
+  `descripcion` text NOT NULL,
+  `createdAt` datetime,
+  `updatedAt` datetime,
+  `deletedAt` datetime,
+  `puntaje` float not null
+ );
+ 
+INSERT INTO `products` (`id`,`idusuario`,`nombreJuego`,`urlImg`,`descripcion`,`createdAt`,`updatedAt`,`deletedAt`,`puntaje`) VALUES (1,1,'Gran Turismo','GRANTURISMO.jpg','Gran Turismo Sport es un videojuego de carreras desarrollado por Polyphony Digital y publicado por Sony Interactive Entertainment para la consola de videojuegos PlayStation 4. Un increible simulador de carreras con fisicas realistas', '2021-04-21 00:00:00',NULL,NULL,9);
+INSERT INTO `products` (`id`,`idusuario`,`nombreJuego`,`urlImg`,`descripcion`,`createdAt`,`updatedAt`,`deletedAt`,`puntaje`) VALUES (2,2,'Last Of Us 2','Last-of-Us.jpg','The Last of Us Part II es un juego de acción y aventuras de 2020 desarrollado por Naughty Dog y publicado por Sony Interactive Entertainment para PlayStation 4.','2021-04-21 00:00:00',NULL,NULL,9.8);
+INSERT INTO `products` (`id`,`idusuario`,`nombreJuego`,`urlImg`,`descripcion`,`createdAt`,`updatedAt`,`deletedAt`,`puntaje`) VALUES (3,3,'FIFA 21','FIFA21.jpg','FIFA 21 es un videojuego de fútbol del año 2020 disponible para Microsoft Windows, PlayStation 4, Xbox One y Nintendo Switch el 9 de octubre de 2020, y también es el primer videojuego de la serie FIFA para PlayStation 5 y Xbox Series X|S.','2021-04-21 00:00:00',NULL,NULL,8);
+INSERT INTO `products` (`id`,`idusuario`,`nombreJuego`,`urlImg`,`descripcion`,`createdAt`,`updatedAt`,`deletedAt`,`puntaje`) VALUES (4,1,'CS GO','counter.webp','Counter-Strike: Global Offensive (CS:GO) es un videojuego de disparos en primera persona desarrollado por Valve Corporation en cooperación con Hidden Path Entertainment, y es el cuarto juego de la saga Counter-Strike, sin contar Counter-Strike: Online.','2021-04-21 00:00:00',NULL,NULL,10);
+INSERT INTO `products` (`id`,`idusuario`,`nombreJuego`,`urlImg`,`descripcion`,`createdAt`,`updatedAt`,`deletedAt`,`puntaje`) VALUES (5,3,'NBA 2K21','nba.jpg','NBA 2K21 es un videojuego de simulación de baloncesto desarrollado por Visual Concepts y publicado por 2K Sports , basado en la Asociación Nacional de Baloncesto ( NBA ). Es la 22a entrega de lafranquicia NBA 2K y la sucesora de NBA 2K20 .','2021-04-21 00:00:00',NULL,NULL,7.9);
+INSERT INTO `products` (`id`,`idusuario`,`nombreJuego`,`urlImg`,`descripcion`,`createdAt`,`updatedAt`,`deletedAt`,`puntaje`) VALUES (6,1,'CoD Black Ops','CODBO3Cover.jpg','Call of Duty: Black Ops II es un videojuego de disparos en primera persona desarrollado por Treyarch y distribuido por Activision en 2012.','2021-04-21 00:00:00',NULL,NULL,9.8);
+INSERT INTO `products` (`id`,`idusuario`,`nombreJuego`,`urlImg`,`descripcion`,`createdAt`,`updatedAt`,`deletedAt`,`puntaje`) VALUES (7,2,'LOL','LOL.png','League of Legends (también conocido por sus siglas LoL) es un videojuego del género multijugador de arena de batalla en línea (MOBA) y deporte electrónico el cual fue desarrollado por Riot Games para Microsoft Windows y OS X y para consolas digitales.','2021-04-21 00:00:00',NULL,NULL,5.4);
+INSERT INTO `products` (`id`,`idusuario`,`nombreJuego`,`urlImg`,`descripcion`,`createdAt`,`updatedAt`,`deletedAt`,`puntaje`) VALUES (8,2,'GTA V','GTAV.jpg','Grand Theft Auto V (abreviado como GTA V o GTA 5) es un videojuego de acción-aventura de mundo abierto desarrollado por el estudio Rockstar North y distribuido por Rockstar Games.','2021-04-21 00:00:00',NULL,NULL,10);
+INSERT INTO `products` (`id`,`idusuario`,`nombreJuego`,`urlImg`,`descripcion`,`createdAt`,`updatedAt`,`deletedAt`,`puntaje`) VALUES (9,3,'Rocket league','RL.jpg','Rocket League es un videojuego que combina el fútbol con los vehículos. Fue desarrollado por Psyonix y lanzado el 7 de julio del 2015. Se encuentra disponible en español, tiene modos de juego cooperativo, de un jugador y en línea','2021-04-21 00:00:00',NULL,NULL,6.1);
+INSERT INTO `products` (`id`,`idusuario`,`nombreJuego`,`urlImg`,`descripcion`,`createdAt`,`updatedAt`,`deletedAt`,`puntaje`) VALUES (10,1,'minecraft','minecraft.webp','Minecraft es un videojuego de construcción sandbox desarrollado por Mojang Studios. El juego implica que los jugadores interactúen con el mundo del juego colocando y rompiendo varios tipos de bloques en un entorno tridimensional. En este entorno, los jugadores pueden crear estructuras creativas, creaciones y obras de arte en servidores multijugador y mundos para un jugador en varios modos de juego. ','2021-04-21 00:00:00',NULL,NULL,10);
+
+CREATE TABLE `users` (
+  `id` int(12) primary key auto_increment NOT NULL,
+  `nombre` varchar(50),
+  `apellido` varchar (50) ,
+  `edad` int(11)  NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `username` varchar(200) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `createdAt` datetime,
+  `updatedAt` datetime,
+  `deletedAt` datetime,
+   `avatar` VARCHAR(100)
+ );
+ 
+ INSERT INTO `users` (`id`,`nombre`,`apellido`,`edad`,`email`,`username`, `password`,`createdAt`,`updatedAt`,`deletedAt`,`avatar`) VALUES (1,'mateo','maciel',19,'mmacielllach@udesa.edu.ar','MATEOCABJ','$10$8ZZLlQPTTb3XrIwwFEfMDujiAOL./SqK2pAsKG2Yh7rO5Nc8pDNa2','2021-04-21 00:00:00',NULL,NULL,'avatar-1624482871285.jpg');
+ INSERT INTO `users` (`id`,`nombre`,`apellido`,`edad`,`email`,`username`,`password`,`createdAt`,`updatedAt`,`deletedAt`,`avatar`) VALUES (2,'Santiago','Genoni',19,'sgenoni@udesa.edu.ar','SANTICAPOYFACHERO','santiago123','2021-04-21 00:00:00',NULL,NULL,'avatar-1624482871285.jpg');
+ INSERT INTO `users` (`id`,`nombre`,`apellido`,`edad`,`email`,`username`,`password`,`createdAt`,`updatedAt`,`deletedAt`,`avatar`) VALUES (3,'Santiago','Ruiz',19,'sruiz@udesa.edu.ar','SANTIRUIZGAMER777','santiago123','2021-04-21 00:00:00',NULL,NULL,'avatar-1624482871285.jpg');
+ INSERT INTO `users` (`id`,`nombre`,`apellido`,`edad`,`email`,`username`,`password`,`createdAt`,`updatedAt`,`deletedAt`,`avatar`) VALUES (4,'Alejandro','Vivone',27,'alejandro@digitalhouse.com','ALEHACKER','Alejandro123','2021-04-21 00:00:00',NULL,NULL,'avatar-1624482871285.jpg');
+ INSERT INTO `users` (`id`,`nombre`,`apellido`,`edad`,`email`,`username`,`password`,`createdAt`,`updatedAt`,`deletedAt`,`avatar`) VALUES (5,'Macarena','Armijo',24,'marmijo@digitalhouse.com','MACAFACHIPIOLA123','Macarena123','2021-04-21 00:00:00',NULL,NULL,'avatar-1624482871285.jpg');
+
+CREATE TABLE `comments` (
+  `id` int(12) primary key auto_increment NOT NULL,
+  `idUsuario` int(30),
+  `idJuego` int(30),
+  `comentario` text,
+  `createdAt` datetime,
+  `updatedAt` datetime,
+  `deletedAt` datetime
+ );
+ 
+
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (1,1,1,'es muy facil, siempre gano','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (2,2,1,'desde que sacaro la actualizacion de Hamilton, siempre corro contra el','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (3,3,1,'le falta el supra, no supra no party','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (4,4,1,'el circuito de spa es increible','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (5,5,2,'la historia me enamoro','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (6,1,2,'Excelente desarrollo de los personajes y maravillosa trama','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (7,2,2,'El dilema ético de los dos personajes principales le da la trama una profundidad increible','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (8,3,2,'Uno de los mejores que jugué en mi vida','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (9,4,3,'messi>ronaldo','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (10,5,3,'el ultimate team es inigualable','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (11,1,3,'no puedo creer que no este Boquita papa','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (12,2,3,'flata la lsuperliga','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (13,3,4,'lleno de cheteros','2021-04-21 00:00:00','0000-00-00 00:00:00',NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (14,4,4,'me pase 12 horas jugando y ni me entere','2021-04-21 00:00:00','0000-00-00 00:00:00',NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (15,5,4,'siempre a A','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (16,1,4,'vendo skins','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (17,2,5,'lebron es la bestia','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (18,3,5,'mamba for ever','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (19,4,5,'solo juego con los celtics','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (20,5,5,'es realmente increible el motor grafico','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (21,2,6,'nuketown love','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (22,3,6,'uno de los mejores juegos de la saga sin duda','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (23,4,6,'falta el camuflaje de oro','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (24,5,6,'es un juego que tenes que tener si o si','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (25,1,7,'no lo entiendo','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (26,2,7,'es un juego que requiere mucho tiempo','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (27,3,7,'tienen que parchear a ciertos heroes','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (28,4,7,'malisimo','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (29,5,8,'el mejor juego de la hitoria','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (30,2,8,'todos empezamos por el centorno','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (31,3,8,'no lo imiten en sus casas','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (32,4,8,'el atraco al banco es unico','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (33,2,9,'el juego mas tilteante que hay','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (34,1,9,'a quien se le ocurre mesclar autos con futbol','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (35,1,9,'me encanto, lo disfrute muchisimo','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (36,1,9,'soy diamante','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (37,2,10,'me crie con ste juego','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (38,3,10,'el minecraft marco mi infancia','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (39,4,10,'la obra maestra de mojang','2021-04-21 00:00:00',NULL,NULL);
+INSERT INTO `comments` (`id`,`idUsuario`,`idJuego`,`comentario`,`createdAt`,`updatedAt`,`deletedAt`) VALUES (40,5,10,'no paro de jugar','2021-04-21 00:00:00',NULL,NULL);
+
+ALTER TABLE `gamepause`.`products` 
+ADD COLUMN `resumen` VARCHAR(100) NOT NULL AFTER `puntaje`;
+
+UPDATE `gamepause`.`products` SET `resumen` = 'Uno de los juegos de carreras más jugados' WHERE (`id` = '1');
+UPDATE `gamepause`.`products` SET `resumen` = 'Finalmente llega la segunda parte de esta increible saga' WHERE (`id` = '2');
+UPDATE `gamepause`.`products` SET `resumen` = 'Nueva entrega de la serie de FIFA' WHERE (`id` = '3');
+UPDATE `gamepause`.`products` SET `resumen` = 'El clásico shooter en 1ra persona' WHERE (`id` = '4');
+UPDATE `gamepause`.`products` SET `resumen` = 'Nueva entrega de la serie NBA' WHERE (`id` = '5');
+UPDATE `gamepause`.`products` SET `resumen` = 'El más aclamado de los Black Ops' WHERE (`id` = '6');
+UPDATE `gamepause`.`products` SET `resumen` = 'El clásico MOBA' WHERE (`id` = '7');
+UPDATE `gamepause`.`products` SET `resumen` = 'El último y más aclamado GTA hasta ahora' WHERE (`id` = '8');
+UPDATE `gamepause`.`products` SET `resumen` = 'Futbol sobre ruedas!' WHERE (`id` = '9');
+UPDATE `gamepause`.`products` SET `resumen` = 'El juego que marcó incontables infancias' WHERE (`id` = '10');

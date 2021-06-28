@@ -1,0 +1,27 @@
+
+<%if(locals.user){%> 
+	<%- include('./partials/headlogueado') %>
+<%}else{%>
+	<%- include('./partials/head')%>   
+<%}%>
+
+
+<p id="sloganInicioSesion">Bienvenido Gamer! complete los datos para continuar</p>
+
+<div class="form">
+  <% if (error != "") { %> 
+    <p style="color: #1CA6D4; text-align: center;font-size: 20px;"><%= error %></p> 
+    <% } %> 
+  <form class="login-form" enctype="multipart/form-data" action="/registrarse/agregarUsuario" method="POST">
+      <input name="nombre" type="text" placeholder="nombre"/>
+      <input name="apellido" type="text" placeholder="apellido"/>
+      <input name="username" type="text" placeholder="nombre de usuario"/>
+      <input name="edad" type="number" placeholder="edad"/>
+      <input name="password" type="password" placeholder="contraseña"/>
+      <input name="email" type="text" placeholder="email"/>
+      <input type="file" name="avatar" >
+      <button type="submit">Registrarse</button>
+      <p class="message">Ya tenes cuenta? <a href="/iniciarSesion">Iniciar Sesion</a></p>
+  </form>
+  </div>
+<%- include('./partials/footer') %> 

@@ -1,0 +1,26 @@
+
+<%if(locals.user){%> 
+	<%- include('./partials/headlogueado') %>
+<%}else{%>
+	<%- include('./partials/head')%>   
+<%}%>
+
+
+<p id="sloganInicioSesion">Inicie sesion para continuar</p>
+<% if(locals.errors){ %>
+  <p style="color: #1CA6D4; text-align: center;font-size: 20px;" ><%= locals.errors.message %> </p>
+<% } %>  
+<div class="form">
+  <form action="/iniciarSesion" method="POST">
+    <input type="text" name="email" value="" placeholder="email">
+    <input type="password" name="password" value="" placeholder="contraseña">
+    <p style="    display: flex;color: azure;">
+      <input type="checkbox" name="rememberme" value="ok" style="width: 26px;">
+      Recordame
+  </p>
+    <button type="submit"> Ingresar </button>
+      <p class="message">no estas registrado? <a href="/registrarse">Registrarse</a></p>
+    </form>
+  </div>
+
+<%- include('./partials/footer') %> 

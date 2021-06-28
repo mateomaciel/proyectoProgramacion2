@@ -1,0 +1,46 @@
+
+<%if(locals.user){%> 
+	<%- include('./partials/headlogueado') %>
+<%}else{%>
+	<%- include('./partials/head')%>   
+<%}%>
+
+
+<div class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+            <%if(products.length == 0){%> 
+				<h2 class="products-title">No hay resultados para su búsqueda</h2>
+				<%} else{%><h2 class="products-title">Resultados de búsqueda</h2> <%}%>
+        </div>
+    </div>
+</div>
+<div class="container products-wrapper" <% if(products.length == 0){%> style="text-align-last: center;margin-top: 80px; margin-bottom: 150px"<%}%>>  
+            <%if(products.length == 0){%> 
+				<i class="fas fa-dragon" style="font-size:50px; color: lightgrey;"></i>
+				<h2 style="color: lightgrey; font-weight: 200">wow, such empty</h2>
+			<%} else{ %>
+		<div class="row">
+			<% for(let i=0; products.length>i; i++){ %>
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/detalleProducto/<%= products[i].id %>">
+						<figure class="product-box_image">
+							<img src="/images/juegos/<%= products[i].urlImg %>" alt="Juego" class="imgproduct">
+						</figure>
+						<article class="product-box_data">
+							<h2 class= "product-title"><%= products[i].nombreJuego %></h2>
+							<p><%= products[i].resumen %></p>
+							<p>Comentarios: <%= products[i].comments.length %></p>
+							<p>Puntaje: <%= products[i].puntaje%></p></a>
+							<a href="/otrosPerfil/<%= products[i].users.id %>"><p>Agregado por: <%= products[i].users.username %></p></a>
+						</article>
+				</section>
+			</div>
+			<% }} %>
+		</div>	    	
+</div>
+</div>
+
+
+<%- include('./partials/footer') %>   

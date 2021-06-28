@@ -1,0 +1,19 @@
+<%- include('./partials/headlogueado') %>
+
+
+  <p id="sloganInicioSesion">edita los datos que corresponda</p>
+
+
+  <div class="form">
+    <form class="login-form" action="/editarPerfil/editar/<%= locals.user.id %>" method="POST">
+      <input type="text" name="nombre" value="<%= locals.user.nombre %>" placeholder="">
+      <input type="text" name="apellido" value="<%= locals.user.apellido %>" placeholder="">
+      <input type="number" name="edad" value="<%= locals.user.edad %>" placeholder="">
+      <input type="text" name="username" value="<%= locals.user.username %>" placeholder="">
+      <input type="email" name="email" value="<%= locals.user.email %>" placeholder="">
+      <button>ACTUALIZAR</button>
+      <button id="borrar">BORRAR CUENTA</button>
+    </form>
+  </div>
+
+  <%- include('./partials/footer') %>

@@ -1,0 +1,60 @@
+
+<%if(locals.user){%> 
+	<%- include('./partials/headlogueado') %>
+<%}else{%>
+	<%- include('./partials/head')%>   
+<%}%>
+
+<section class="info-usuario container products-wrapper" style="padding-top: 25px;">
+		<div class="row">
+			<div class="img-container offset-3 col-2">
+				<img src="../images/avatars/<%=users.avatar%>" alt="foto de perfil" class="foto-perfil">
+			</div>
+			<div class="data-container col-6">
+				<div class="d-flex align-items-center ">
+					<h1 class="main-title" style="color: white;"><%=users.username%>
+					</h1>
+					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+				</div>
+				<div>
+					<ul class="">
+						<li class="usuario-li"><%= users.products.length%> productos</li>
+						<li class="usuario-li"><%= users.comments.length%> comentarios</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /Datos del usuario -->
+
+	<!-- Mis productos -->
+	<div class="container products-wrapper" style="margin-top: 0px;">
+		<div class="row" style="box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);">
+			<div class="col-12">
+				<h2 class="products-title"><%if(users.products.length == 0){%>El usuario no tiene productos <%} else{%> Sus productos<%}%></h2>
+			</div>
+			<!-- Show -->
+			<% for(let i=0; users.products.length>i; i++){%>
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/detalleProducto/<%=users.products[i].id%>">
+						<figure class="product-box_image">
+							<img src="/images/juegos/<%=users.products[i].urlImg%>" alt="Juego" class="imgproduct">
+						</figure>
+						<article class="product-box_data">
+							<h2 class= "product-title"><%=users.products[i].nombreJuego%></h2>
+							<p><%=users.products[i].resumen%></p>
+							<p>Comentarios: <%= users.products[i].comments.length%></p>
+							<p>Puntaje: <%=users.products[i].puntaje%></p>
+						</article>
+					</a>
+				</section>
+			</div>
+			<%}%>
+		</div>
+	</div>
+	<!-- /Mis productos -->
+
+<%- include('./partials/footer') %> 
+
+

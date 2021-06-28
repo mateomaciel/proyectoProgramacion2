@@ -1,0 +1,90 @@
+<%if(locals.user){%>
+    <%- include('./partials/headlogueado') %>
+        <%}else{%>
+            <%- include('./partials/head')%>
+                <%}%>
+
+                    <div class="container products-wrapper">
+                        <div class="d-flex align-items-center">
+                            <h2 class="products-title2">
+                                <%= Prod.nombreJuego%>
+                            </h2>
+
+                            <%if (locals.user==undefined) { } else if(locals.user.id==Prod.users.id){ %>
+                                <p class="product-detail-description">
+                                    <a href="/editarProducto/<%= Prod.id%>">Editar producto</a>
+                                </p>
+                                <form action="/detalleProducto/delete/<%= Prod.id %>" method="POST" style="margin-bottom: 0px;">
+                                    <button class="product-detail-description" type="submit" style="background-color: #282a2e;
+                                    margin-top: 0px;
+                                    border-top-width: 0px;
+                                    border-left-width: 0px;
+                                    border-right-width: 0px;
+                                    border-bottom-width: 0px;">Borrar</button>
+                                </form>      
+                                <%} else {%>
+                                    <%}%>
+                        </div>
+
+                        <div class="product-detail">
+                            <div class="row">
+                                <article class="col-12 col-lg-8 product-detail-info">
+                                    <img src="/images/juegos/<%= Prod.urlImg%>" alt="Juego" class="product-detail-img" />
+                                    <p class="product-detail-description">
+                                        <%= Prod.descripcion%>
+                                    </p>
+                                    <p class="product-detail-description" style="text-align: center; padding: 10px">
+                                        Puntaje segun la critica: <%= Prod.puntaje%>
+                                    </p>
+                                    <p class="product-detail-description" style="text-align: center; padding: 10px">
+                                        Agregado por: <%= Prod.users.username%>
+                                    </p>
+                                    <!-- aca vamos a tener que meter un js para que calcule automaticamente el recargo-->
+                                </article>
+                                <div class="col-12 col-lg-4">
+                                    <section class="comments">
+                                        <%if(Comm.length == 0){%><p style="text-align: center; font-size: 20px; color: white;">Todavía no hay comentarios</p><%}else{
+                                        for(let i=0; Comm.length>i; i++){%>
+                                            <article>
+                                                <img src="../images/avatars/<%=Comm[i].users.avatar%> " alt="" />
+                                                <div class="data">
+                                                    <p class="user">
+                                                        <strong>
+                                                            <a href="/otrosPerfil/<%=Comm[i].users.id%>"
+                                                                style="color: white">
+                                                                <%=Comm[i].users.username%>:
+                                                            </a>
+                                                        </strong>
+                                                        <%= Comm[i].comentario %>
+                                                    </p>
+                                                    <p style="font-size: small; color: white">
+                                                        <%=Comm[i].createdAt %>
+                                                    </p>
+                                                </div>
+                                            </article>
+                                            <%}}%>
+                                    </section>
+                                    <form class="form-detalle-producto" <%if (locals.user==undefined){ %> action="/iniciarSesion" method="get" <% }else{%> action="/detalleProducto/coment/<%= locals.user.id %>/<%= Prod.id %>"   method="post"  <% } %>     >  
+                                        <!-- <input class="form-input" type="text" name="comentario" value="" placeholder="Agregar comentario"> -->
+                                        <input class="form-input" type="text" name="comentario" value="" placeholder="Escribe tu comentario">
+                                        <button type="submit" class="buy-now-button">
+                                            AGREGAR COMENTARIO
+                                        </button>
+                                    </form>
+                                    <hr />
+                                    <form action="" class="boton-comprar" method="POST">
+                                        <button type="button" class="boton-boton">
+                                            <a href="https://listado.mercadolibre.com.ar/<%=Prod.nombreJuego%>">COMPRAR
+                                                ONLINE</a>
+                                        </button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <%- include('./partials/footer') %>

@@ -1,0 +1,25 @@
+
+<%if(locals.user){%> 
+	<%- include('./partials/headlogueado') %>
+<%}else{%>
+	<%- include('./partials/head')%>   
+<%}%>
+
+
+<p id="sloganInicioSesion">Complete los datos del producto que desea publicar</p>
+
+<div class="form">
+    <form class="login-form" enctype="multipart/form-data" action="/agregarProducto/agregar" method="post">
+        <input name="nombreJuego" type="text" placeholder="inserte el nombre del producto" required/>
+        <!-- <input name="urlImg" type="text" placeholder="inserte la url de imagen" required/> -->
+        <input name="descripcion" type="text" placeholder="inserte la descripcion" required/>
+        <input name="puntaje" type="number" placeholder="inserte puntaje" required/>
+        <input name="resumen" type="text" placeholder="inserte resumen" required/>
+        <input name="juego" type="file" placeholder="inserte foto del juego" required/>
+        <button>publicar</button>
+    </form>
+  </div>
+<%- include('./partials/footer') %> 
+
+
+<!-- si podemos mejorarla esta un poco floja de frontend -->

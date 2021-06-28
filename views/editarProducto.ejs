@@ -1,0 +1,50 @@
+
+<%if(locals.user){%> 
+	<%- include('./partials/headlogueado') %>
+<%}else{%>
+	<%- include('./partials/head')%>   
+<%}%>
+
+
+<%if(locals.user.id == products.idUsuario){%> 
+
+<p id="sloganInicioSesion">actualize los datos que considere neccesarios</p>
+
+<div class="form">
+    <form class="login-form" action="/editarProducto/editar/<%= products.id %>" method="POST">
+      <p id="titulo">nombre del producto</p>
+        <input type="text" name="ndj" placeholder="" value="<%= products.nombreJuego%>"/>
+        <p id="titulo" style="display:none">link de la Imagen</p>
+        <input type="text" style="display:none" name="url" placeholder="" value="<%= products.urlImg%> "/>
+        <p id="titulo">puntaje</p>
+        <input type="number" name="puntaje" value="<%= products.puntaje %>" >
+        <p id="titulo">resumen</p>
+        <input type="text" name="resumen" value="<%= products.resumen %>" >
+
+
+
+        <p id="titulo">descripción</p>
+        <textarea name="descripcion" id="descripcion"  class="input"><%= products.descripcion%></textarea>
+        <button>ACTUALIZAR</button>
+    </form>
+  </div>
+
+  <%}else{%><div class="container products-wrapper">
+    <div class="row">
+        <div class="col-12">
+             
+				<h2 class="products-title" style="text-align: center;">No puedes editar productos que no te pertenezcan... pilluelo</h2>
+				
+        </div>
+    </div>
+</div>
+<div class="container products-wrapper"  style="text-align-last: center;margin-top: 80px; margin-bottom: 150px">  
+             
+				<i class="fas fa-exclamation-triangle" style="font-size:50px; color: lightgrey;"></i>
+				<h2 style="color: lightgrey; font-weight: 200">Alerta de hacker</h2>
+			
+		</div>	    	
+</div>
+</div><%}%>
+  
+<%- include('./partials/footer') %> 

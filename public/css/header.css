@@ -1,0 +1,9 @@
+.align-items-center {
+    -ms-flex-align: center!important;
+    align-items: center!important;
+    height: min-content;
+}
+
+#logo{max-width: 12.666667%;
+margin-right: 30px;
+}
